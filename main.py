@@ -2,36 +2,41 @@ import os
 import random
 import time
 #TODO Add Poker game
+def jls_extract_def(clearConsole, wallet, game, roulette, slots, blackjack, horses, blackjackV2, depositFunds, withdrawFunds):
+    
+    
+    #Main menu to select game
+    def main_menu(wallet):
+    	clearConsole()
+    	print("----[Welcome to Casino Royale Bjorn bitchboy]----")
+    	print("----[Select your game]----\n")
+    
+    	print("[1] Roulette 	 [4] Blackjack 	 	[7] Deposit money")
+    	print("[2] Poker 	 [5] Horses 		 [8] Widthdraw money")
+    	print("[3] Slots 	 [6] Blackjack V2 	 [9] Exit" + "\n")
+    	# errorHandling(wallet)
+    
+    	print("Wallet: $", wallet)
+    	game = int(input("\nPlease Select your game: "))
+    
+    	if game == 1:
+    		roulette(wallet)
+    	elif game == 3:
+    		slots(wallet)
+    	elif game == 4:
+    		blackjack(wallet)
+    	elif game == 5:
+    		horses(wallet)
+    	elif game == 6:
+    		blackjackV2(wallet)
+    	elif game == 7:
+    		depositFunds(wallet)
+    	elif game == 8:
+    		withdrawFunds(wallet)	
+    return wallet, main_menu
 
 
-#Main menu to select game
-def main_menu(wallet):
-	clearConsole()
-	print("----[Welcome to Casino Royale Bjorn bitchboy]----")
-	print("----[Select your game]----\n")
-
-	print("[1] Roulette 	 [4] Blackjack 	 	[7] Deposit money")
-	print("[2] Poker 	 [5] Horses 		 [8] Widthdraw money")
-	print("[3] Slots 	 [6] Blackjack V2 	 [9] Exit" + "\n")
-	# errorHandling(wallet)
-
-	print("Wallet: $", wallet)
-	game = int(input("\nPlease Select your game: "))
-
-	if game == 1:
-		roulette(wallet)
-	elif game == 3:
-		slots(wallet)
-	elif game == 4:
-		blackjack(wallet)
-	elif game == 5:
-		horses(wallet)
-	elif game == 6:
-		blackjackV2(wallet)
-	elif game == 7:
-		depositFunds(wallet)
-	elif game == 8:
-		withdrawFunds(wallet)	
+wallet, main_menu = jls_extract_def(clearConsole, wallet, game, roulette, slots, blackjack, horses, blackjackV2, depositFunds, withdrawFunds)
 
 # Function to clear console at start of other functions
 def clearConsole():
